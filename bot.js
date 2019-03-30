@@ -87,4 +87,16 @@ if (message.content.startsWith("-ping")) {
 });
 
 
+const status1 = ['Scripter AbuDa7m','$boy','Hi'] // تعريفات الحالات
+client.on("ready", async  => { 
+     setInterval(function(){ // انشاء فنكشن
+         client.user.setStatus(`${status1[Math.floor(Math.random() * status1.length)]}`) // هذا السطر يغير حالة البوت الى حالة عشوائية من الحالات الي فوق
+         }, 60000); // هذا السطر يعيد تنفيذ الامر كل دقيقة يمديك تغير الرقم
+		 });
+// ساعة = 3600000
+// يومين = 17280000
+// ثلاث ايام = 25920000
+// اسبوع = 60480000
+
+
 client.login(process.env.BOT_TOKEN);
