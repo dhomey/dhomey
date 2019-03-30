@@ -79,4 +79,16 @@ client.on('message',async message => {
 }); 
 
 
+client.on('message', message => {
+    if(message.content.startsWith(prefix+'sup')) {
+  const embed = new Discord.RichEmbed()
+    .setTitle("Invite Link")
+    .setDescription(`suport server **[here](https://discord.gg/RaMDJsJ)**`)
+    .setColor('RANDOM');
+    
+        message.author.send(embed)
+}
+});
+
+
 client.login(process.env.BOT_TOKEN);
