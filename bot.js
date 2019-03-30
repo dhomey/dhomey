@@ -23,7 +23,7 @@ client.user.setGame(`SBot | Beta | $ `,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 
 });
-
+\\
 
 client.on('message', message => {
    let embed = new Discord.RichEmbed()
@@ -46,7 +46,16 @@ if(message.content.split(' ')[0] == '-bc') {
             m.send(``,{embed: bc});
         });
     }
-})
+});
+\\
+
+client.on('message', message => {
+if(!message.channel.guild) return;
+if (message.content.startsWith("-ping")) {
+    message.channel.sendMessage(`Pong ! `${Date.now() - message.createdTimestamp} ms`:watch:`);
+    }
+});
+\\
 
 
 client.login(process.env.BOT_TOKEN);
