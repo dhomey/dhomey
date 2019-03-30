@@ -24,79 +24,44 @@ client.user.setStatus("dnd")
 
 });
 
-client.on('message',async message => {
-
-
-    if (message.content.startsWith(prefix + "invite")) {
-        if(message.author.bot) return;
-        const args = message.content.split(' ').slice(prefix.length);
-    var uses = args[0];
-    var age = args[1];
-
-    if (!uses) {
-        return message.reply('لقد نسيت ان تقول كم عدد المستخدمين');
-    }
-    if (!age) {
-        message.reply('لقد نسيت ان تقول كم مده انتهاء الرابط');
-        age = await 0;
-    }
-
-    uses = await uses.toString(); 
-
-    if (uses.indexOf('.') !== -1) {
-        return message.reply(''); 
-    }
-
-    age = await age.toString();
-
-    if (age.indexOf('s') !== -1) { 
-        age = await age.replace(/s.*/, '');
-    } else if (age.indexOf('m') !== -1) { 
-        var agemin = await age.replace(/m.*/, '');
-        age = await agemin * 60;
-    } else if (age.indexOf('h') !== -1) { 
-        var agehour = await age.replace(/h.*/, '');
-        age = await agehour * 60 * 60;
-    } else if (age.indexOf('d') !== -1) { 
-        var ageday = await age.replace(/d.*/, '');
-        age = await ageday * 60 * 60 * 24;
-    } else {
-        if (age.indexOf('.') !== -1) {
-            return message.reply('لا. فقط ارقام'); 
-        }
-        age = await age; 
-    }
-
-    message.channel.createInvite({ maxUses: uses, maxAge: age }).then((invite) => {
-
-        message.channel.send(`**
-هذا رابطك:  \`${invite}\`
-المستخدمين : \`${uses}\`
-مده الانتهى : \`${age}\`
-**`);
+client.on('message', message =>{
+  if(message.content.startsWith(prefix + 'stats')){
+  if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply('❌ **لا تملك صلاحية**');
+  if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return message.reply('❌ **البوت لا يمتلك صلاحية**');
+  message.guild.createChannel(`👑معلومات السيرفر👌:` , 'category')
+  
+    message.guild.createChannel(`"انتظر قليلا` , 'voice').then(time => {
+    time.overwritePermissions(message.guild.id, {
+      CONNECT: false,
+      SPEAK: false
     });
-};
-}); 
+  
+  setInterval(() => {
+      time.setName(`${message.guild.memberCount} <== عدد الكل `);
+ },1000);
+    });
 
-
-client.on('message', message => {
-if(!message.channel.guild) return;
-if (message.content.startsWith("-ping")) {
-    message.channel.sendMessage(`Pong ! `${Date.now() - message.createdTimestamp} ms`:watch:`);
-    }
+ message.guild.createChannel(`"انتظر قليلا` , 'voice').then(time => {
+  time.overwritePermissions(message.guild.id, {
+    CONNECT: false,
+    SPEAK: false
+  });
+setInterval(() => {
+    time.setName(`${message.guild.members.filter(m =>!m.user.bot).size} <==  عدد الاعضاء `);
+},1500);
 });
 
-
-const status1 = ['Scripter AbuDa7m','$boy','Hi'] // تعريفات الحالات
-client.on("ready", async  => { 
-     setInterval(function(){ // انشاء فنكشن
-         client.user.setStatus(`${status1[Math.floor(Math.random() * status1.length)]}`) // هذا السطر يغير حالة البوت الى حالة عشوائية من الحالات الي فوق
-         }, 60000); // هذا السطر يعيد تنفيذ الامر كل دقيقة يمديك تغير الرقم
-		 });
-// ساعة = 3600000
-// يومين = 17280000
-// ثلاث ايام = 25920000
-// اسبوع = 60480000
+message.guild.createChannel(`"انتظر قليلا` , 'voice').then(time => {
+  time.overwritePermissions(message.guild.id, {
+    CONNECT: false,
+    SPEAK: false
+  });
+setInterval(() => {
+    time.setName(`${message.guild.members.filter(m=>m.user.bot).size} <==  عدد البوتات `);
+},2000);
+});
+}
+});
 
 
 client.login(process.env.BOT_TOKEN);
