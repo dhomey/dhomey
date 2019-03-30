@@ -80,14 +80,10 @@ client.on('message',async message => {
 
 
 client.on('message', message => {
-    if(message.content.startsWith(prefix+'sup')) {
-  const embed = new Discord.RichEmbed()
-    .setTitle("Invite Link")
-    .setDescription(`suport server **[here](https://discord.gg/RaMDJsJ)**`)
-    .setColor('RANDOM');
-    
-        message.author.send(embed)
-}
+if(!message.channel.guild) return;
+if (message.content.startsWith("-ping")) {
+    message.channel.sendMessage(`Pong ! `${Date.now() - message.createdTimestamp} ms`:watch:`);
+    }
 });
 
 
