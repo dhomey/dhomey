@@ -39,13 +39,4 @@ if(message.content.split(' ')[0] == '-bc') {
 
 
 
-client.on('message', message => {
-if(!message.channel.guild) return;
-if (message.content.startsWith("-ping")) {
-    message.channel.sendMessage(`Pong ! `${Date.now() - message.createdTimestamp} ms`:watch:`);
-    }
-});
-
-
-
 client.login(process.env.BOT_TOKEN);
