@@ -18,12 +18,12 @@ client.on('ready', () => {
 
   console.log(`Logged in as ${client.user.tag}!`);
 
-client.user.setGame(`SBot | Beta | $ `,"http://twitch.tv/S-F")
+client.user.setGame(`SBot | Beta |`,"http://twitch.tv/S-F")
 
 client.user.setStatus("dnd")
 
 });
-\\
+
 
 client.on('message', message => {
    let embed = new Discord.RichEmbed()
@@ -47,7 +47,7 @@ if(message.content.split(' ')[0] == '-bc') {
         });
     }
 });
-\\
+
 
 
 client.on('message', message => {
@@ -59,4 +59,4 @@ if (message.content.startsWith("-ping")) {
 \\
 
 
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);\
