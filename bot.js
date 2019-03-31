@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = "$";
 client.on('ready', () => {
-client.user.setGame(`SBot | Beta |`,"http://twitch.tv/S-F")
+client.user.setGame(`$Sbot : Beta Now !`,"http://twitch.tv/S-F")
    console.log(`----------------`);
       console.log(`Desert Bot- Script By : i1Suhaib`);
         console.log(`----------------`);
