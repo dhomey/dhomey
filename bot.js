@@ -64,4 +64,5 @@ client.on('message', function(msg) {
         }
       });
 
+
 client.login(process.env.BOT_TOKEN);
