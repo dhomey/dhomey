@@ -156,7 +156,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 var prefix = "$" // البريفكس
-if(message.content.startsWith(prefix +"owner")){ // الامر
+if(message.content.startsWith(prefix +"serverbeta")){ // الامر
   if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply(`**هذه الخاصية للادارة فقط** ❎ `)
 if(!message.channel.guild) return message.reply(' ');
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
