@@ -128,4 +128,34 @@ footer: {
 });
 
 
+client.on('message', message => {
+    if (message.content === "#id") {
+    let embed = new Discord.RichEmbed()
+   .setColor("RANDOM")
+   .setThumbnail(message.author.avatarURL)
+   .setTitle(`info about ${message.guild.name}`)
+   .addField("Server Owner 👑",`➥ ` + `${message.guild.owner.user.username}`, true)
+   .addField('Server ID 🆔',`➥` + message.guild.id, true)
+   .addField("Owner Tag",`➥ ` +  `#` + message.guild.owner.user.discriminator, true)
+   .addField("Owner ID 🆔",`➥ ` + message.guild.owner.user.id, true)
+   .addField("Server Region📡",`➥ ` + message.guild.region, true)
+   .addField("Server Member Size🏧",`➥ ` + message.guild.members.size, true)
+   .addField("Server Channels Number🏧",`➥ ` + message.guild.channels.size, true)
+   .addField("Server Roels Number🏧",`➥ ` + message.guild.roles.size, true)
+   .addField("AFK channel💤",`➥ ` + message.guild.afkChannel || 'Null', true)
+   .addField("Server Created AT",`➥ ` + message.guild.createdAt, true)
+   .addField(`info about ${message.author.username}`, `➥ `)
+   .addField("Name",`➥ ` + `${message.author.username}`, true)
+   .addField('Tag',`➥ ` + "#" +  message.author.discriminator, true)
+   .addField("ID 🆔",`➥ ` + message.author.id, true)
+   .addField(" Account Created At",`➥ ` + message.author.createdAt, true)
+   .setTimestamp()
+   .setFooter(message.author.tag, message.author.avatarURL)
+      
+      
+   message.channel.sendEmbed(embed);
+     }
+ });
+
+
 client.login(process.env.BOT_TOKEN);
