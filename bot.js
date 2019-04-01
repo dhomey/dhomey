@@ -28,7 +28,7 @@ client.user.setStatus("dnd")
 client.on("message", message => {
     var prefix = "$";
             var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clear")) {
+            if (message.content.startsWith(prefix + "OwnerBotDahm")) {
  if (!args[1]) {
                                 let x5bz1 = new Discord.RichEmbed()
                                 .setDescription("#clear <number>")
