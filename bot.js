@@ -199,7 +199,7 @@ client.on('message', function(msg) {
 
 
 client.on('message', message => {
-    if (message.content.startsWith("دعوة")) {
+    if (message.content.startsWith("$رابط")) {
 
   message.channel.createInvite({
         thing: true,
