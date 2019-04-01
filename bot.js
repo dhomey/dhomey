@@ -18,34 +18,34 @@ client.on('ready', () => {
 
   console.log(`Logged in as ${client.user.tag}!`);
 
-client.user.setGame(`$help | $invite`,"http://twitch.tv/S-F")
+client.user.setGame(`Hi`,"http://twitch.tv/S-F")
 
 client.user.setStatus("dnd")
 
 });
 
 
-client.on('message', message => {
-   let embed = new Discord.RichEmbed()
-
-    let args = message.content.split(' ').slice(1).join(' ');
-     if(!message.channel.guild) return;
-if(message.content.split(' ')[0] == '-bc') {
-         message.react("✔️")
-          let embed = new Discord.RichEmbed()
-    .setColor("#FF00FF")
-    .setThumbnail(message.author.avatarURL)   
-                                      .addField('تم الارسال بواسطة :', "<@" + message.author.id + ">")
-                 message.channel.sendEmbed(embed);
-        message.guild.members.forEach(m => {
-            var bc = new Discord.RichEmbed()
-.addField('**● Sender  :**', `*** → ${message.author.username}#${message.author.discriminator}***`)
-            .addField('***● Server  :***', `*** → ${message.guild.name}***`)               
-    .setColor('#ff0000')
-                 .addField('ّ', args)
-            m.send(``,{embed: bc});
-        });
-    }
+client.on("message", message => {
+    var prefix = "#";
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clear")) {
+ if (!args[1]) {
+                                let x5bz1 = new Discord.RichEmbed()
+                                .setDescription("#clear <number>")
+                                .setColor("#0000FF")
+                                message.channel.sendEmbed(x5bz1);
+                            } else {
+                            let messagecount = parseInt(args[1]);
+                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                                                          message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                            let x5bz2 = new Discord.RichEmbed()
+                                                            .setColor("#008000")
+                                .setDescription(":white_check_mark: | Delete " + args[1] + " Message!")
+                                                                                        message.delete("..");
+                                message.channel.sendEmbed(x5bz2);
+                            }
+                          }
 });
 
 
