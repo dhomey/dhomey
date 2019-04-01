@@ -26,7 +26,7 @@ client.user.setStatus("dnd")
 
 
 client.on("message", message => {
-    var prefix = "#";
+    var prefix = "$";
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "clear")) {
  if (!args[1]) {
@@ -46,6 +46,39 @@ client.on("message", message => {
                                 message.channel.sendEmbed(x5bz2);
                             }
                           }
+});
+
+
+
+client.on("message", msg => {//Alpha Codes 
+    var Alpha = '$';//البرفكس
+    if(msg.content.startsWith(Alpha + "دعوة")){//Alpha Codes 
+        let e = new Discord.RichEmbed()//Alpha Codes 
+        .setTitle("**اضافه البوت لسيرفرك**")//Alpha Codes 
+       .setDescription(`**📬 | اذا تريد البوت يرسلك الرابط بخاصك
+       📇 | اذا تريد البوت يرسلك الرابط هنا بالشات**`)
+        msg.channel.send(e).then(b => {
+            b.react('📇')
+            .then(() => b.react('📬'))
+            .then(() =>b.react('📇'))
+            let reaction1Filter = (reaction, user) => reaction.emoji.name === '📇' && user.id === msg.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '📬' && user.id === msg.author.id;
+
+let reaction1 = b.createReactionCollector(reaction1Filter, { time: 12000 });
+let reaction2 = b.createReactionCollector(reaction2Filter, { time: 12000 });
+reaction1.on("collect", r => {
+msg.reply(`https://discordapp.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=0&scope=bot`)
+b.delete(2000)
+})
+reaction2.on("collect", r => {
+    msg.author.send(`${msg.author} https://discordapp.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=0&scope=bot`)
+    b.delete(2000)
+    msg.reply("**تم ارسال الرابط في خاصك 📬**").then(d => {
+        d.delete(2000)
+    })
+    })
+        })
+    }
 });
 
 
