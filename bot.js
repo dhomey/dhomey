@@ -100,13 +100,8 @@ client.on("message",async msg => {
 
 
 client.on('message', message => {
-    if(message.content.startsWith(prefix+'الدعم')) {
-  const embed = new Discord.RichEmbed()
-    .setTitle("Invite Link")
-    .setDescription(`suport server **[here](https://discord.gg/UfsDKM6)**`)
-    .setColor('RANDOM');
-    
-        message.author.send(embed)
+  if(message.content.startsWith(prefix + "ping")) {
+message.channel.send(`MessageTaken: `${Date.now() - message.createdTimestamp}`msn DiscordAPi: `${Math.round(client.ping)}`msnAverage: `${Math.round(client.pings[0])}`ms. `)
 }
 });
 
