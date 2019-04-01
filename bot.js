@@ -177,27 +177,6 @@ client.on("message", msg => {
 });
 
 
-client.on('message', function(msg) {
-    const prefix = '$'
-    if(msg.content.startsWith (prefix  + 'معلومات')) {
-      let embed = new Discord.RichEmbed()
-      .setColor('RANDOM')
-      .setThumbnail(msg.guild.iconURL)
-      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
-      .addField('🌐** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
-      .addField('🏅** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField('🔴**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
-      .addField('🔵**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-      .addField('📝**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-      .addField('🎤**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
-      .addField('👑**__ الأونـر__**',`**${msg.guild.owner}**`,true)
-      .addField('🆔**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
-      .addField('📅**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
-      msg.channel.send({embed:embed});
-    }
-  });
-
-
 client.on('message', message => {
     if (message.content.startsWith("رابط")) {
 
@@ -215,33 +194,6 @@ message.author.send(`**مدة الرابط : يـوم
 
 
     }
-});
-
-
-client.on("message", message => {
-  let men = message.mentions.users.first();
-  if(message.content.startsWith( $ + "برا")) {
-    try {
-    if(!men) {
-      message.channel.send("**الرجاء اخيار شخص لطرده !**");
-      return;
-    }
-    if(!message.guild.member(men).voiceChannel) return message.channel.send("المراد طرده ليس في الغرف الصوتيه!");
-    if(!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send("ليست لديك صلحيات سحب الاعضاء")
-    if(!message.guild.me.hasPermission("MOVE_MEMBERS")) return message.channel.send("ليست لدي الصلاحيه لسحب الاعضاء");
-       if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send("ليست لدي الصلاحيات لانشاء رومات صوتيه")
-
-    message.guild.createChannel(" VKick", "voice").then(c => {
-      message.guild.member(men).setVoiceChannel(c.id)
-    setTimeout(() => {
-      c.delete()
-    }, 100)
-    });
-    message.channel.send(`**لقد تم طرده من الرومات الصوتيه \`\`${men.username}\`\`**`)
-} catch (e) {
-  message.channel.send("لا يمكنني القيام بذلك بسبب الصلاحيات او ما شابه");
-}
-  }
 });
 
 
