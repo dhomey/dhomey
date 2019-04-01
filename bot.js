@@ -1,105 +1,55 @@
 const Discord = require("discord.js");
+
 const client = new Discord.Client();
+
 var prefix = "$";
+
 client.on('ready', () => {
-client.user.setGame(`$Sbot : Beta Now !`,"http://twitch.tv/S-F")
+
    console.log(`----------------`);
+
       console.log(`Desert Bot- Script By : i1Suhaib`);
+
         console.log(`----------------`);
+
       console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
+
     console.log(`----------------`);
+
   console.log(`Logged in as ${client.user.tag}!`);
-//client.user.setStatus("dnd")
+
+client.user.setGame(`$help | $invite`,"http://twitch.tv/S-F")
+
+client.user.setStatus("dnd")
 
 });
 
 
-client.on('message', message => {
-   if(!message.channel.guild) return;
-if(message.content.startsWith('$bc')) {
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send(':no_entry: | You dont have **ADMINISTRATOR** Permission!' );
-let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let BcList = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.setAuthor(`محتوى الرساله ${args}`)
-.setDescription(`برودكاست بـ امبد :pencil:\nبرودكاست بدون امبد:pencil2: \nلديك دقيقه للأختيار قبل الغاء البرودكاست`)
-if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
-msg.react('📝')
-.then(() => msg.react('✏'))
-.then(() =>msg.react('📝'))
- 
-let EmbedBcFilter = (reaction, user) => reaction.emoji.name === '📝' && user.id === message.author.id;
-let NormalBcFilter = (reaction, user) => reaction.emoji.name === '✏' && user.id === message.author.id;
- 
-let EmbedBc = msg.createReactionCollector(EmbedBcFilter, { time: 60000 });
-let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
- 
-EmbedBc.on("collect", r => {
-message.channel.send(`:ballot_box_with_check: تم ارسال الرساله بنجاح`).then(m => m.delete(5000));
-message.guild.members.forEach(m => {
-var bc = new
-Discord.RichEmbed()
-.setColor('RANDOM')
-  .setTitle('`-Broadcast-`')
-.setAuthor(`Server : ${message.guild.name}`)
-.setFooter(`Sender : ${message.author.username}`)
-.setDescription(`Message : ${args}`)
-.setThumbnail(message.author.avatarURL)
-m.send({ embed: bc })
-msg.delete();
-})
-})
-NormalBc.on("collect", r => {
-  message.channel.send(`:ballot_box_with_check: تم ارسال الرساله بنجاح`).then(m => m.delete(5000));
-message.guild.members.forEach(m => {
-m.send(args);
-msg.delete();
-})
-})
-})
-}
-});
 
+client.on('message', msg => { ///////////// Galal , ALPHA CODES 
 
-client.on('message', function(msg) {
-        let verifLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
-        let region = {
-            "brazil": "Brazil",
-            "eu-central": "Central Europe",
-            "singapore": "Singapore",
-            "Russia": "Russia",
-            "us-central": "U.S. Central",
-            "sydney": "Sydney",
-            "us-east": "U.S. East",
-            "us-south": "U.S. South",
-            "us-west": "U.S. West",
-            "eu-west": "Western Europe",
-            "vip-us-east": "VIP U.S. East",
-            "london": "London",
-            "amsterdam": "Amsterdam",
-            "hongkong": "Hong Kong"
-        };
-      
-          if (msg.content.startsWith(prefix + 'server')) {
-          if (!msg.guild) return message.reply('**Only Servers | :x:**')
-      console.log(`${msg.author.username} Has Ran Server Command`)
-          let embed = new Discord.RichEmbed()
-          .setColor('RANDOM')
-          .setThumbnail(msg.guild.iconURL)
-          .setTitle(`${msg.guild.name}`)
-          .addField('**[❖] Server Name | اسم السيرفر**',`[** __${msg.guild.name}__ **]`,true)
-          .addField('**[❖] OwnerShip | مؤسس السيرفر**',`**${msg.guild.owner}**`,true)
-          .addField('**[❖] Server ID | معرف السيرفر**',`**${msg.guild.id}**`,true)
-          .addField('**[❖] Members Count | عدد الاعضاء**',`[** __${msg.guild.memberCount}__ **]`,true)
-          .addField('**[❖] Verification Level | مستوي الحمايه**',`[** __${verifLevels[msg.guild.verificationLevel]}__** ]`,true)
-          .addField('**[❖] Region | البلد**',`[** __${region[msg.guild.region]}__** ]`,true)
-          .addField('**[❖] Text Channels | رومات كتابيه**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-          .addField('**[❖] Voice Channels | رومات صوتيه**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
-          .addField('**[❖] Created At | صنع في**',msg.guild.createdAt.toLocaleString())
-          msg.channel.send({embed:embed});
-        }
-      });
+  const at_reply = ('<@' + msg.author.id + '>  '); ///////////// Galal , ALPHA CODES 
+
+  if (msg.author.bot) return; ///////////// Galal , ALPHA CODES 
+
+  if (msg.content === prefix + 'ping') { ///////////// Galal , ALPHA CODES 
+      msg.channel.send(at_reply + 'pong  ' + `${ Math.round(client.ping) }` + 'ms');
+      console.log('pong  ' + `${ Math.round(client.ping) }` + 'ms');
+  };
+ 
+  if (msg.content === prefix + 'avatar') { ///////////// Galal , ALPHA CODES 
+      msg.channel.send(at_reply + msg.author.avatarURL); ///////////// Galal , ALPHA CODES 
+  };
+
+  if (msg.content === prefix + 'id') { ///////////// Galal , ALPHA CODES  
+      msg.channel.send(at_reply + msg.author.id); ///////////// Galal , ALPHA CODES 
+  };
+
+  if (msg.content === prefix + 'ch_id') { ///////////// Galal , ALPHA CODES 
+      msg.channel.send(at_reply + msg.channel.name + '  ' + '<' + msg.channel.id + '>'); ///////////// Galal , ALPHA CODES 
+  }; ///////////// Galal , ALPHA CODES 
+ 
+}); ///////////// Galal , ALPHA CODES
 
 
 client.login(process.env.BOT_TOKEN);
