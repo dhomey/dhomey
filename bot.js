@@ -199,7 +199,7 @@ message.author.send(`**مدة الرابط : يـوم
 
 client.on('message', message => {
 const prefix = '.'	
-    if(message.content === $ + 'الوان') {
+    if(message.content === prefix + 'cc1') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
          if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('**You Dont Have** `ADMINISTRATOR` **premission**').then(msg => msg.delete(6000))
       message.guild.createRole({
