@@ -24,6 +24,7 @@ client.user.setStatus("dnd")
 
 });
 
+
 client.on('message',async message => {
   if(message.content.startsWith(prefix + "server")) {
     let embed = new Discord.RichEmbed()
