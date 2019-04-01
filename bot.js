@@ -31,7 +31,7 @@ client.on("message", message => {
             if (message.content.startsWith(prefix + "OwnerBotDahm")) {
  if (!args[1]) {
                                 let x5bz1 = new Discord.RichEmbed()
-                                .setDescription("#clear <number>")
+                                .setDescription("يتم تنفيذ حذف الشات من قبل مؤسس البوت")
                                 .setColor("#0000FF")
                                 message.channel.sendEmbed(x5bz1);
                             } else {
