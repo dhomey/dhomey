@@ -223,7 +223,7 @@ client.on('message', message => {
 .addField('** عدد السيرفرات التي بها**',`[${client.guilds.size}]  `) // by Nasws Nasws
 .addField('** البنق **',`[${Date.now() - message.createdTimestamp}]`) // by Nasws Nasws
 .addField('** الغرف **',`[${client.channels.size}]`)  
-.setFooter(' ✱ Support SilverBot ')
+.setFooter(' ✱ SilverBot ')
 .setColor('RANDOM')
   message.channel.sendEmbed(embed);
     }
