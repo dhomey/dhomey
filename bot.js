@@ -216,4 +216,18 @@ client.on('message', message => {
 });
 
 
+client.on('message', message => {
+            if (message.content.startsWith("$botinfo")) {
+     let embed = new Discord.RichEmbed() // by Nasws Nasws Nasws Nasws
+.addField('** عدد الاعضاء **',` [${client.users.size}] `) // by Nasws Nasws
+.addField('** عدد السيرفرات التي بها**',`[${client.guilds.size}]  `) // by Nasws Nasws
+.addField('** البنق **',`[${Date.now() - message.createdTimestamp}]`) // by Nasws Nasws
+.addField('** الغرف **',`[${client.channels.size}]`)  
+.setFooter(' Devolope By Nasws ')
+.setColor('RANDOM')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
 client.login(process.env.BOT_TOKEN);
