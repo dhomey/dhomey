@@ -350,7 +350,7 @@ msg.delete();
 
 
 client.on('message', message => {
-    if(message.content.startsWith(prefix+'support')) {
+    if(message.content.startsWith(prefix+'الدعم')) {
   const embed = new Discord.RichEmbed()
     .setTitle("Invite Link")
     .setDescription(`suport server **[here](https://discord.gg/UfsDKM6)**`)
@@ -359,6 +359,32 @@ client.on('message', message => {
         message.author.send(embed)
 }
 });
+
+
+client.on('message', msg => { ///////////// Galal , ALPHA CODES 
+
+  const at_reply = ('<@' + msg.author.id + '>  '); ///////////// Galal , ALPHA CODES 
+
+  if (msg.author.bot) return; ///////////// Galal , ALPHA CODES 
+
+  if (msg.content === prefix + '4') { ///////////// Galal , ALPHA CODES 
+      msg.channel.send(at_reply + 'pong  ' + `${ Math.round(client.ping) }` + 'ms');
+      console.log('pong  ' + `${ Math.round(client.ping) }` + 'ms');
+  };
+ 
+  if (msg.content === prefix + '3') { ///////////// Galal , ALPHA CODES 
+      msg.channel.send(at_reply + msg.author.avatarURL); ///////////// Galal , ALPHA CODES 
+  };
+
+  if (msg.content === prefix + '2') { ///////////// Galal , ALPHA CODES  
+      msg.channel.send(at_reply + msg.author.id); ///////////// Galal , ALPHA CODES 
+  };
+
+  if (msg.content === prefix + '1') { ///////////// Galal , ALPHA CODES 
+      msg.channel.send(at_reply + msg.channel.name + '  ' + '<' + msg.channel.id + '>'); ///////////// Galal , ALPHA CODES 
+  }; ///////////// Galal , ALPHA CODES 
+ 
+}); ///////////// Galal , ALPHA CODES
 
 
 client.login(process.env.BOT_TOKEN);
