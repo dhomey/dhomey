@@ -349,4 +349,16 @@ msg.delete();
 });
 
 
+client.on('message', message => {
+    if(message.content.startsWith(prefix+'support')) {
+  const embed = new Discord.RichEmbed()
+    .setTitle("Invite Link")
+    .setDescription(`suport server **[here](https://discord.gg/UfsDKM6)**`)
+    .setColor('RANDOM');
+    
+        message.author.send(embed)
+}
+});
+
+
 client.login(process.env.BOT_TOKEN);
