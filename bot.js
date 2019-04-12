@@ -129,7 +129,7 @@ footer: {
 
 
 client.on('message', message => {
-    if (message.content === "$id") {
+    if (message.content === "123") {
     let embed = new Discord.RichEmbed()
    .setColor("RANDOM")
    .setThumbnail(message.author.avatarURL)
@@ -263,7 +263,7 @@ client.on("message", (message) => {
     }
  
  
-  if (message.content.startsWith("$close")) {
+  if (message.content.startsWith("cl")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
        message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب $yes`)
@@ -350,7 +350,7 @@ msg.delete();
 
 
 client.on('message', message => {
-    if(message.content.startsWith(prefix+'الدعم')) {
+    if(message.content.startsWith(prefix+'sup')) {
   const embed = new Discord.RichEmbed()
     .setTitle("Invite Link")
     .setDescription(`suport server **[here](https://discord.gg/UfsDKM6)**`)
@@ -711,6 +711,36 @@ client.on('message', message => {
     })
 }
 });
+
+
+client.on('message', message => {
+    if (message.content === "$id") {
+    let embed = new Discord.RichEmbed()
+   .setColor("RANDOM")
+   .setThumbnail(message.author.avatarURL)
+   .setTitle(`info about ${message.guild.name}`)
+   .addField("Server Owner 👑",`➥ ` + `${message.guild.owner.user.username}`, true)
+   .addField('Server ID 🆔',`➥` + message.guild.id, true)
+   .addField("Owner Tag",`➥ ` +  `#` + message.guild.owner.user.discriminator, true)
+   .addField("Owner ID 🆔",`➥ ` + message.guild.owner.user.id, true)
+   .addField("Server Region📡",`➥ ` + message.guild.region, true)
+   .addField("Server Member Size🏧",`➥ ` + message.guild.members.size, true)
+   .addField("Server Channels Number🏧",`➥ ` + message.guild.channels.size, true)
+   .addField("Server Roels Number🏧",`➥ ` + message.guild.roles.size, true)
+   .addField("AFK channel💤",`➥ ` + message.guild.afkChannel || 'Null', true)
+   .addField("Server Created AT",`➥ ` + message.guild.createdAt, true)
+   .addField(`info about ${message.author.username}`, `➥ `)
+   .addField("Name",`➥ ` + `${message.author.username}`, true)
+   .addField('Tag',`➥ ` + "#" +  message.author.discriminator, true)
+   .addField("ID 🆔",`➥ ` + message.author.id, true)
+   .addField(" Account Created At",`➥ ` + message.author.createdAt, true)
+   .setTimestamp()
+   .setFooter(message.author.tag, message.author.avatarURL)
+      
+      
+   message.channel.sendEmbed(embed);
+     }
+ });
 
 
 client.login(process.env.BOT_TOKEN);
