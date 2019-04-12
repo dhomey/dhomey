@@ -568,4 +568,34 @@ message.channel.awaitMessages(response => response.content === '3', {
 });
 
 
+client.on('message', function(message) {
+	let mohammad = client.channels.get("562272746327769098");
+	let gamer = message.content.split(" ");  
+	if(message.author.bot) return;
+  if(message.content.startsWith("اسمك")) return mohammad.send("`هناك ناس ذكرت اسمك هل تريد رأيت الرسالة ؟`").then(msg => {
+    msg.react("✅")
+    msg.react("❌")
+.then(() => msg.react('❌'))
+.then(() =>msg.react('✅'))
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+
+let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+reaction1.on("collect", r => {
+   let Rembed = new Discord.RichEmbed()
+   .setThumbnail(message.author.avatarURL)
+   .addField("**# - الرسالة:**",gamer,true)
+   .addField("**# -  الشخص:**",message.author.tag,true)
+   .addField("**# - الوقت:**",message.createdAt,true)   
+   mohammad.send(Rembed)
+   
+})
+reaction2.on("collect", r => {
+    mohammad.send("**# - Canceled!**");
+});
+  });
+});
+
+
 client.login(process.env.BOT_TOKEN);
