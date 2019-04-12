@@ -288,7 +288,7 @@ client.on("message", (message) => {
 
 
 client.on('message', message => {
-            if (message.content.startsWith("$botinfo")) {
+            if (message.content.startsWith("ffufuuf")) {
      let embed = new Discord.RichEmbed() // by Nasws Nasws Nasws Nasws
 .addField('** عدد الاعضاء **',` [${client.users.size}] `) // by Nasws Nasws
 .addField('** عدد السيرفرات التي بها**',`[${client.guilds.size}]  `) // by Nasws Nasws
