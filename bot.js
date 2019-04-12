@@ -675,4 +675,23 @@ client.on('message' , message => {
 });
 
 
+//كود استريمنق
+client.on('ready',  () => {
+            console.log(`Silver BoT`);
+    client.user.setGame("Narox Devs", "https://www.twitch.tv/idk");
+});
+// كود الواتشينق
+client.on('ready', () => {
+        console.log(`Silver BoT`);
+              client.user.setActivity("Narox Devs", {type: 'WATCHING'});
+      
+      });
+// كود اللينسق
+      client.on('ready', () => {
+        console.log(`Silver BoT`);
+              client.user.setActivity("Narox Devs", {type: 'LISTENING'});
+      
+      });
+
+
 client.login(process.env.BOT_TOKEN);
