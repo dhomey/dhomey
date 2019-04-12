@@ -678,18 +678,18 @@ client.on('message' , message => {
 //كود استريمنق
 client.on('ready',  () => {
             console.log(`Silver BoT`);
-    client.user.setGame("Narox Devs", "https://www.twitch.tv/idk");
+    client.user.setGame("Silver BoT", "https://www.twitch.tv/idk");
 });
 // كود الواتشينق
 client.on('ready', () => {
         console.log(`Silver BoT`);
-              client.user.setActivity("Narox Devs", {type: 'WATCHING'});
+              client.user.setActivity("Silver BoT", {type: 'WATCHING'});
       
       });
 // كود اللينسق
       client.on('ready', () => {
         console.log(`Silver BoT`);
-              client.user.setActivity("Narox Devs", {type: 'LISTENING'});
+              client.user.setActivity("Silver BoT", {type: 'LISTENING'});
       
       });
 
