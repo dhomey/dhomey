@@ -389,7 +389,7 @@ client.on('message', msg => { ///////////// Galal , ALPHA CODES
 
 client.on('message', async message => {
   let args = message.content.split(" ");
-  if(message.content.startsWith(prefix + "mute")) {
+  if(message.content.startsWith(prefix + "44444444")) {
     if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply('**أنت لا تملك الخصائص اللازمة . يجب توفر خاصية `Manage Roles`**').then(msg => {
       msg.delete(3500);
       message.delete(3500);
@@ -469,7 +469,7 @@ client.on('message', async message => {
       mention.removeRole(role);
       message.channel.send(`**:white_check_mark: ${mention.user.username} unmuted in the server ! :neutral_face:  **  `); // حقوق الفا كومينتي
     },duration * 60000);
-  } else if(message.content.startsWith(prefix + "unmute")) {
+  } else if(message.content.startsWith(prefix + "213123123")) {
     let mention = message.mentions.members.first();
     let role = message.guild.roles.find('name', 'Muted') || message.guild.roles.get(r => r.name === 'Muted');
     if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply('**أنت لا تملك الخصائص اللازمة . يجب توفر خاصية `Manage Roles`**').then(msg => {
@@ -493,6 +493,79 @@ client.on('message', async message => {
   }
 });
 
+
+client.on('message',function(message) {
+    let muteRole = message.guild.roles.find(r => r.name === "Muted");
+    let muteId = message.mentions.users.first();
+    let messageArray = message.content.split(" ");
+    let muteReason = messageArray[3];
+    let Swearing = '1h';
+    let Advertising = '4h';
+    let Spam = '2h';
+   if(message.content.startsWith(prefix + "mute")) {
+       if(!muteRole) return message.guild.createRole({ name: "Muted", permissions: [] });
+       if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send("**- You don't have the needed permissions!**");
+       if(!muteId) return message.channel.send("**- Mention someone!**");
+       if(muteId === message.author) return message.channel.send('**- You cannot mute yourself!**');
+       if(muteId === client.user) return message.channel.send('**- You cannot mute me!**');
+       message.guild.channels.forEach((channel, id) => {
+      message.channel.overwritePermissions(muteRole, {
+        SEND_MESSAGES: false,
+        ADD_REACTIONS: false
+      });
+    });
+    message.channel.send(`
+    \`\`\`ml
+" قم بأختيار رقم السبب "
+1 : السب و الشتم
+2 : النشر
+3 : السبام
+\`\`\`
+__امامك 20 ثانية للاختيار__`)
+.then(() => {
+  message.channel.awaitMessages(response => response.content === '1', {
+    max: 1,
+    time: 20000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+      message.guild.member(muteId).addRole(muteRole)
+      .then(() => { setTimeout(() => {
+           message.guild.member(muteId).removeRole(muteRole);
+       }, mmss(Swearing));
+       message.channel.send(`**تم!, تم اعطاء ميوت لـ${muteId} بسبب السب و الشم**`);
+      });
+    });
+
+message.channel.awaitMessages(response => response.content === '2', {
+    max: 1,
+    time: 20000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+      message.guild.member(muteId).addRole(muteRole)
+      .then(() => { setTimeout(() => {
+           message.guild.member(muteId).removeRole(muteRole);
+       }, mmss(Advertising));
+       message.channel.send(`**تم اعطاء ميوت لـ${muteId} بسبب النشر**`);
+      });
+    });
+message.channel.awaitMessages(response => response.content === '3', {
+    max: 1,
+    time: 20000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+      message.guild.member(muteId).addRole(muteRole)
+      .then(() => { setTimeout(() => {
+           message.guild.member(muteId).removeRole(muteRole);
+       }, mmss(Spam));
+       message.channel.send(`**تم اعطاء ميوت لـ${muteId} بسبب السبام**`);
+      });
+    });
+   });
+   }
+});
 
 
 client.login(process.env.BOT_TOKEN);
