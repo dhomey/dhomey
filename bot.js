@@ -263,7 +263,7 @@ client.on("message", (message) => {
     }
  
  
-  if (message.content.startsWith("cl")) {
+  if (message.content.startsWith("$clo")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
        message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب $yes`)
