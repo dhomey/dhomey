@@ -91,7 +91,7 @@ client.on('message', function(msg) {
       .addField('🌐 **اسم السيرفر : **' , `**[ ${msg.guild.name} ]**`,true)
       .addField('🌍 ** موقع السيرفر :**',`**[ ${msg.guild.region} ]**`,true)
       .addField('🎖** الرتب :**',`**[ ${msg.guild.roles.size} ]**`,true)
-      .addField('👤** عدد الاعضاء :**',`**[ ${msg.guild.memberCount} ]**`,true)
+      .addField('👤** عدد الاعضاء :**',`**[ ${msg.guild.memberCount} ]**`,Ftrue)
       .addField('✅** عدد الاعضاء الاونلاين :**',`**[ ${msg.guild.members.filter(m=>m.presence.status == 'online').size} ]**`,true)
       .addField('📝** الرومات الكتابية :**',`**[ ${msg.guild.channels.filter(m => m.type === 'text').size} ]**`,true)
       .addField('🔊** رومات الصوت :**',`**[ ${msg.guild.channels.filter(m => m.type === 'voice').size} ]**`,true)
@@ -263,7 +263,7 @@ client.on("message", (message) => {
     }
  
  
-  if (message.content.startsWith("$clo")) {
+  if (message.content.startsWith("$اغلاق")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
        message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب $اغلاق`)
