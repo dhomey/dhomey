@@ -678,7 +678,7 @@ client.on('message' , message => {
 // كود الواتشينق
 client.on('ready', () => {
         console.log(`Silver BoT`);
-              client.user.setActivity("everyone Server", {type: 'WATCHING'});
+              client.user.setActivity("Silver BoT", {type: 'WATCHING'});
       
       });
 
