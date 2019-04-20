@@ -76,17 +76,35 @@ Discord API: ${client.ping.toFixed(0)} ms`);
 
 
 client.on('message', message => {
-            if (message.content.startsWith("$botinfo")) {
+            if (message.content.startsWith("!$ownerbot1")) {
      let embed = new Discord.RichEmbed()
 .addField(' عدد السيرفرات التي بها',`[${client.guilds.size}]  `)
 .addField(' عدد الاعضاء ',` [${client.users.size}] `)
 .addField('الغرف ',`[${client.channels.size}]`) 
 .addField(' البنق ',`[${Date.now() - message.createdTimestamp}]`) 
-.addField(' Devloper : @Lost#7888 ')
+.addField(' Devloper : ! Lost#7888 ')
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
 });
+
+
+client.on("message", message => {
+                      if(message.content === 'رابط' ) {
+						  message.channel.send('**شيك الخاص يحلو 😉**').then(msg => {
+							  msg.edit('وش فيك منتظر رح شوف الكود فالخاص')
+						  
+						  });
+                        message.channel.createInvite({
+                        thing: true,
+                        maxUses: 10,
+                        maxAge: 86400
+                        }).then(invite =>
+       
+							   message.author.sendMessage(invite.url)
+							  
+                             )						 
+					}});
 
 
 client.login(process.env.BOT_TOKEN);
