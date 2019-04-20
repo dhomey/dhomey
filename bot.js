@@ -211,4 +211,26 @@ client.on('message', message => {
 });
 
 
+
+client.on('message', message => {
+     if (message.content === "$help") {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **$ping* ' ,' **سرعة إتصال البوت** ')
+.addField('     **soon**  ' ,' **معلومــات عــن حســابــك** ')
+.addField('     **$server** ' ,' ** معلومات عن السيرفر**')
+.addField('     **soon** ' , '**صورتك في الدسكورد أو صورة الشخص المذكور**')
+.addField('     **soon** ' ,' ** ** ')
+.addField('     **soon** ' ,' ** أوآمر الإدآرة ** ')
+.addField('     **soon ** ' ,' ** للطرد  ** ')
+.addField('     **$bc ** ' ,' ** للبرودكاست ** ')
+.addField('     **$bc 100** ' , '**لـ مسح الشات** ')
+.addField('     **soon** ' , '**لـ اظهار الرتب الخاصة في السيرفر** ')
+.addField('**لدعوة البوت للسيرفر ..**' , '**https://discordapp.com/api/oauth2/authorize?client_id=561556008556822528&permissions=0&scope=bot=0**')
+.setColor('RANDOM')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
 client.login(process.env.BOT_TOKEN);
