@@ -129,37 +129,28 @@ client.on('message', async msg =>{
 });//Alpha Codes_LioNDz
 
 
-client.on("message",async msg => {
-    if(msg.content.startsWith(prefix + "clear")){
-      let args = msg.content.split(" ").slice(1).join(" ");
-      if(!args)  return msg.reply(`**${msg.content} <Number Messages Deleted?>**`)
-      msg.reply("**Are You Sure Of The Deleted Messages?**").then(o => {
-        o.react("✅")
-        .then(()=> o.react('❎'))
-        .then(()=> o.react("✅"))
-        let reaction1 = (reaction,user) => reaction.emoji.name === "✅" && user.id === msg.author.id
-        let reaction2 = (reaction,user) => reaction.emoji.name === "❎" && user.id === msg.author.id
-        let react3 = o.createReactionCollector(reaction1, { time: 12300})
-        let react4 = o.createReactionCollector(reaction2, { time: 12300})
-        react3.on("collect", r => {
-         msg.channel.bulkDelete(args)
-          msg.reply(`**Done Deleted Messages ${args}**`).then(op => {
-          op.delete(1200)
-         o.delete(1200)
-         msg.delete(1200)
-       })
-       react4.on("collect", r => {
-        msg.reply(`**Done Deleted Messages Has Been Cancel**`).then(ob => {
-          ob.delete(1200)
-          o.delete(1200)
-          msg.delete(1200)
-        })
-        })
-      })
-    })
-    
-    }
-  });
+client.on("message", message => {
+    var prefix = "#";
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clear")) {
+ if (!args[1]) {
+                                let x5bz1 = new Discord.RichEmbed()
+                                .setDescription("$clear <number>")
+                                .setColor("#0000FF")
+                                message.channel.sendEmbed(x5bz1);
+                            } else {
+                            let messagecount = parseInt(args[1]);
+                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                                                          message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                            let x5bz2 = new Discord.RichEmbed()
+                                                            .setColor("#008000")
+                                .setDescription(":white_check_mark: | Delete " + args[1] + " Message!")
+                                                                                        message.delete("..");
+                                message.channel.sendEmbed(x5bz2);
+                            }
+                          }
+});
 
 
 client.on('message', message => {
