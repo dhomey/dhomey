@@ -198,41 +198,4 @@ if(message.content.split(' ')[0] == '$bc') {
 })
 
 
-client.on('message', message => {
-  if (true) {
-if (message.content === '$بوت') {
-      message.author.send('  رابط بوتك  |  تفضل ربط البوت     ').catch(e => console.log(e.stack));
- 
-    }
-   }
-  });
- 
- 
-client.on('message', message => {
-     if (message.content === ".invite") {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#9B59B6")
-  .addField(" https://discordapp.com/api/oauth2/authorize?client_id=561556008556822528&permissions=0&scope=bot | البوت الخاص بنا")
-     
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
-
-
-client.on('message', message => {
-    if (message.content === ('$bot')) {
-    message.channel.send({
-        embed: new Discord.RichEmbed()
-            .setColor('RANDOM')
-            .addField('**Servers🌐**',`__ ${client.guilds.size} __ `)
-           .addField('**Users👥**',`__ ${client.users.size} __`)
-             .addField('**Channels📚**',`__ ${client.channels.size} __`)
-    })
-}
-});
-
-
 client.login(process.env.BOT_TOKEN);
