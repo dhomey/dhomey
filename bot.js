@@ -89,24 +89,6 @@ client.on('message', message => {
 });
 
 
-client.on("message", message => {
-                      if(message.content === 'رابط' ) {
-						  message.channel.send('**شيك الخاص يحلو 😉**').then(msg => {
-							  msg.edit('★ تم ارسال الرابط في الخاص')
-						  
-						  });
-                        message.channel.createInvite({
-                        thing: true,
-                        maxUses: 10,
-                        maxAge: 86400
-                        }).then(invite =>
-       
-							   message.author.sendMessage(invite.url)
-							  
-                             )						 
-					}});
-
-
 client.on('message', async msg =>{
     var prefix = '§';//هنا البريفيكس
     if (msg.author.bot) return undefined;
@@ -162,7 +144,7 @@ if(message.content.split(' ')[0] == '$bc') {
             m.send(``,{embed: bc});
         });
     }
-})
+});
 
 
 client.on('message', message => {
@@ -285,7 +267,7 @@ client.on("message", (message) => {
                 embed: embed
             });
         }).catch(console.error);
-    }
+    };
  
  
   if (message.content.startsWith("$close")) {
