@@ -92,7 +92,7 @@ client.on('message', message => {
 client.on("message", message => {
                       if(message.content === 'رابط' ) {
 						  message.channel.send('**شيك الخاص يحلو 😉**').then(msg => {
-							  msg.edit('وش فيك منتظر رح شوف الكود فالخاص')
+							  msg.edit('★ تم ارسال الرابط في الخاص')
 						  
 						  });
                         message.channel.createInvite({
