@@ -65,4 +65,14 @@ client.on('message', function(msg) {
       });
 
 
+client.on('message', message =>{//ping
+if(message.content.startsWith(prefix  +  'ping'))  {
+let start = Date.now(); message.channel.send('pong').then(message => { 
+message.edit(`
+Discord API: ${client.ping.toFixed(0)} ms`);
+  });
+  }
+});
+
+
 client.login(process.env.BOT_TOKEN);
