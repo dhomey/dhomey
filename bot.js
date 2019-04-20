@@ -135,7 +135,7 @@ client.on("message", message => {
             if (message.content.startsWith(prefix + "clear")) {
  if (!args[1]) {
                                 let x5bz1 = new Discord.RichEmbed()
-                                .setDescription("$clear <number>")
+                                .setDescription("clear <number>")
                                 .setColor("#0000FF")
                                 message.channel.sendEmbed(x5bz1);
                             } else {
@@ -334,6 +334,32 @@ client.on("message", (message) => {
    }
  
 });
+
+
+client.on('message', msg => { ///////////// Galal , ALPHA CODES 
+
+  const at_reply = ('<@' + msg.author.id + '>  '); ///////////// Galal , ALPHA CODES 
+
+  if (msg.author.bot) return; ///////////// Galal , ALPHA CODES 
+
+  if (msg.content === prefix + 'ping') { ///////////// Galal , ALPHA CODES 
+      msg.channel.send(at_reply + 'pong  ' + `${ Math.round(client.ping) }` + 'ms');
+      console.log('pong  ' + `${ Math.round(client.ping) }` + 'ms');
+  };
+ 
+  if (msg.content === prefix + 'avatar') { ///////////// Galal , ALPHA CODES 
+      msg.channel.send(at_reply + msg.author.avatarURL); ///////////// Galal , ALPHA CODES 
+  };
+
+  if (msg.content === prefix + 'id') { ///////////// Galal , ALPHA CODES  
+      msg.channel.send(at_reply + msg.author.id); ///////////// Galal , ALPHA CODES 
+  };
+
+  if (msg.content === prefix + 'ch_id') { ///////////// Galal , ALPHA CODES 
+      msg.channel.send(at_reply + msg.channel.name + '  ' + '<' + msg.channel.id + '>'); ///////////// Galal , ALPHA CODES 
+  }; ///////////// Galal , ALPHA CODES 
+ 
+}); ///////////// Galal , ALPHA CODES
 
 
 client.login(process.env.BOT_TOKEN);
