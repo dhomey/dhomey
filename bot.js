@@ -736,7 +736,7 @@ setInterval(() => {
 });
 
 
-ient.on('message',async message => {
+client.on('message',async message => {
   if(message.content.startsWith(prefix + "server")) {
     let embed = new Discord.RichEmbed()
     .setAuthor(message.author.username, message.author.avatarURL)
