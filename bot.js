@@ -222,4 +222,23 @@ client.on('message', message => {
 });
 
 
+client.on('message', message => {
+    if (message.content === ('$bot123123')) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .addField('✽Bot Ping :',`» ${client.ping} ms`, true)
+            .addField('✽Servers :',`» ${clinet.servers.size}`, true)
+        .addField('✽Channels :',`» ${clinet.Channels.size}`, true)
+        .addField('✽Users :',`» ${clinet.users.size}`, true)
+            .addField('✽Bot name :',`» ${clinet.user.tag}`, true)
+        .addField('✽Bot Owner :',`» <@ايديك هنا>`, true)
+        .setFooter(message.author.username, message.author.avatarURL)
+    })
+}
+});
+
+
 client.login(process.env.BOT_TOKEN);
