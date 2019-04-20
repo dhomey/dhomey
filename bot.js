@@ -75,4 +75,18 @@ Discord API: ${client.ping.toFixed(0)} ms`);
 });
 
 
+client.on('message', message => {
+            if (message.content.startsWith("$botinfo")) {
+     let embed = new Discord.RichEmbed()
+.addField(' عدد السيرفرات التي بها',`[${client.guilds.size}]  `)
+.addField(' عدد الاعضاء ',` [${client.users.size}] `)
+.addField('الغرف ',`[${client.channels.size}]`) 
+.addField(' البنق ',`[${Date.now() - message.createdTimestamp}]`) 
+.addField(' Devloper : @Lost#7888 ')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
 client.login(process.env.BOT_TOKEN);
