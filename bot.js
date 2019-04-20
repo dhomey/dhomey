@@ -362,7 +362,6 @@ client.on('message', msg => { ///////////// Galal , ALPHA CODES
 }); ///////////// Galal , ALPHA CODES
 
 
-قم بلصق الكود هنا
 client.on('message', async message => {//alpha codes & Mrx -Dev
     if (message.content.startsWith(prefix + 'dm')) {//alpha codes & Mrx -Dev
         let args = message.content.split(' ').slice(2);//alpha codes & Mrx -Dev
