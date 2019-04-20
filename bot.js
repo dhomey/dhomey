@@ -198,4 +198,17 @@ if(message.content.split(' ')[0] == '$bc') {
 })
 
 
+client.on('message', message => {
+    if (message.content === ('$iDhoom123')) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .addField('**Servers🌐**',`__ ${client.guilds.size} __ `)
+           .addField('**Users👥**',`__ ${client.users.size} __`)
+             .addField('**Channels📚**',`__ ${client.channels.size} __`)
+    })
+}
+});
+
+
 client.login(process.env.BOT_TOKEN);
