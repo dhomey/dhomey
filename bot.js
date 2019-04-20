@@ -351,11 +351,11 @@ client.on('message', msg => { ///////////// Galal , ALPHA CODES
       msg.channel.send(at_reply + msg.author.avatarURL); ///////////// Galal , ALPHA CODES 
   };
 
-  if (msg.content === prefix + 'id') { ///////////// Galal , ALPHA CODES  
+  if (msg.content === prefix + '123123123123') { ///////////// Galal , ALPHA CODES  
       msg.channel.send(at_reply + msg.author.id); ///////////// Galal , ALPHA CODES 
   };
 
-  if (msg.content === prefix + 'ch_id') { ///////////// Galal , ALPHA CODES 
+  if (msg.content === prefix + '123123123123123123123123') { ///////////// Galal , ALPHA CODES 
       msg.channel.send(at_reply + msg.channel.name + '  ' + '<' + msg.channel.id + '>'); ///////////// Galal , ALPHA CODES 
   }; ///////////// Galal , ALPHA CODES 
  
