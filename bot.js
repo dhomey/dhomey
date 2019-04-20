@@ -683,5 +683,17 @@ client.on('ready', () => {
       });
 
 
+client.on('message', message => {
+    if (message.content === ('$ping')) {
+      if (message.author.bot) return;
+      if (!message.channel.guild) return;
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+      .setColor('RANDOM')
+     .addField('pong!',`${Date.now() - message.createdTimestamp}`)
+    })
+}
+});
+
 
 client.login(process.env.BOT_TOKEN);
