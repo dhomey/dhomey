@@ -321,10 +321,10 @@ client.on("message", (message) => {
     }
  
  
-  if (message.content.startsWith("$اغلاق")) {
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
+  if (message.content.startsWith("$close")) {
+        if (!message.channel.name.startsWith(`$yas`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
-       message.channel.send(`لأغلاق التذكرة قم بكتابة الأمر التالي | $اغلاق`)
+       message.channel.send(`لأغلاق التذكرة قم بكتابة الأمر التالي | $yas`)
            .then((m) => {
                message.channel.awaitMessages(response => response.content === '.confirm', {
                        max: 1,
